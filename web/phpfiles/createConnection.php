@@ -9,8 +9,7 @@
 try
 {
     $connection = new Mongo('mongodb://chintu:chintu123@ds229415.mlab.com:29415/taxidetails');
-    $database   = $connection->selectDB('your_database');
-    $collection = $database->selectCollection('tasks');
+  
     echo "connection success";
 }
 catch(MongoConnectionException $e)
