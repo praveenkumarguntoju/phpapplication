@@ -6,17 +6,17 @@
 
 <body>
 <?php
-$servername = "localhost";
-$username = "root";
-$password = "";
-$dbname = "shopping";
-
-// Create connection
-$conn = mysqli_connect($servername, $username,$password,$dbname);
-// Check connection
-if (!$conn) {
-die("Connection failed: " . mysqli_connect_error());
+try
+{
+    $connection = new Mongo('mongodb://<username>:<password>@ds031347.mongolab.com:31347/your_database');
+    $database   = $connection->selectDB('your_database');
+    $collection = $database->selectCollection('tasks');
 }
+catch(MongoConnectionException $e)
+{
+    die("Failed to connect to database ".$e->getMessage());
+}
+
 ?>
 </body>
 
